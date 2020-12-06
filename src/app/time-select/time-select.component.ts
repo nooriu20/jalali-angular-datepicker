@@ -219,4 +219,10 @@ export class TimeSelectComponent implements OnInit, OnChanges, ControlValueAcces
     this.seconds = this.timeSelectService.getSeconds(this.componentConfig, time);
     this.meridiem = this.timeSelectService.getMeridiem(this.componentConfig, time);
   }
+
+  timeInputChanged(value, unit: momentNs.unitOfTime.All) {
+    console.log(value);
+    this.selected = this.selected.set(unit, value);
+    this.emitChange();
+  }
 }
